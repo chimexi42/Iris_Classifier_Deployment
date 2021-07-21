@@ -12,9 +12,9 @@ class Predict(Resource):
     @staticmethod
     def post():
         data = request.get_json()
-        sepal_length = data['sepal_legnth']
+        sepal_length = data['sepal_length']
         sepal_width = data['sepal_width']
-        petal_length = data['petal_legnth']
+        petal_length = data['petal_length']
         petal_width = data['petal_width']
 
         m = Modeler()
@@ -23,7 +23,7 @@ class Predict(Resource):
             m.fit()
         prediction = m.predict([sepal_length, sepal_width, petal_length, petal_width])
         return jsonify({
-            'input':{
+            'Input':{
                 'SepalLength': sepal_length,
                 'SepalWidth': sepal_width,
                 'PetalLength': petal_length,
@@ -36,6 +36,6 @@ class Predict(Resource):
 api.add_resource(Predict, '/predict')
     
 if __name__ == '__main__':
-        app.run(debug=True)
+    app.run(debug=True)
 
 

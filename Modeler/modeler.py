@@ -5,7 +5,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 class Modeler:
     def __init__(self):
-        self.df = df.read_csv('iris.csv')
+        self.df = pd.read_csv('iris.csv')
 
         try: self.model = joblib.load('Models/iris.model')
         except: self.model = None
